@@ -29,12 +29,8 @@ jobs:
 
     name: Node.js ${{ matrix.node }} test
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
-      - uses: node -v
+      - run: node -v
