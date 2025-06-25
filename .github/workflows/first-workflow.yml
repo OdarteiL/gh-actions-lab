@@ -1,10 +1,17 @@
 name: First Workflow
 
-on: [push]
+on: 
+  push:
+  pull_request:
 
 jobs:
-  say-hello:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Print greeting
-        run: echo "🎉 Hello from GitHub Actions!"
+      - name: checkout repo
+      - uses: actions/checkout@v4
+
+      - name: Run script
+        run: |
+          echo "Running script on $(date)"
+          ls -la
