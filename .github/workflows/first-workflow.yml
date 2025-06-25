@@ -21,10 +21,19 @@ jobs:
     strategy:
       matrix:
         node: [14, 16, 18]
+    
+    # steps:
+    #   - name: checkout repo
+    #     uses: actions/checkout@v4
+
 
     name: Node.js ${{ matrix.node }} test
     steps:
-      - uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
